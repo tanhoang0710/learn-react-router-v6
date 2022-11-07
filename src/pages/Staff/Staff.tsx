@@ -1,4 +1,7 @@
-import { Outlet, NavLink } from 'react-router-dom'
+import AddStaff from 'components/AddStaff'
+import StaffItem from 'components/StaffItem'
+import StaffList from 'components/StaffList'
+import { Outlet, NavLink, Routes, Route } from 'react-router-dom'
 
 export default function Staff() {
   return (
@@ -34,6 +37,11 @@ export default function Staff() {
           </li>
         </ul>
       </div>
+      <Routes>
+        <Route path=':id' element={<StaffItem />} />
+        <Route path='add' element={<AddStaff />} />
+        <Route index element={<StaffList />} />
+      </Routes>
       <Outlet />
     </div>
   )
